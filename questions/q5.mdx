@@ -1,0 +1,20 @@
+
+-- $80,766,524.00
+-- 161,600
+
+select
+{
+	--[Measures].[Cost],
+	[Measures].[Fact Encounter Count],
+	kpivalue("KPI_YTD_DischargeDate")
+} on 0
+,
+{
+	[Dim Date Key Discharge].[Year].children *
+	[Dim Date Key Discharge].[Month].children *
+	[Dim Encounter].[Admission Type].children
+} on 1
+from
+	cubeInterview
+
+

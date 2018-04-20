@@ -1,0 +1,159 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f4f93667-b336-4e62-8a6f-8bde621c3db6" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>srcvInterview</ID>
+  <Name>srcvInterview</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>Interview</DataSourceID>
+  <Schema>
+    <xs:schema id="srcvInterview" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="srcvInterview" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="2dc4b038-ca2a-45d8-9e28-48cf7d0b777b">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_factEncounter" msprop:design-time-name="d3ee4877-2e5b-44ee-8cd6-90e87004e72c" msprop:DbTableName="factEncounter" msprop:FriendlyName="factEncounter" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="factEncounterKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="c757fafa-4301-4b63-ba71-2f26e4775c40" msprop:DbColumnName="factEncounterKey" msprop:FriendlyName="factEncounterKey" type="xs:int" />
+                  <xs:element name="dimEncounterKey" msprop:design-time-name="6d86c819-fd7e-4c2b-8b08-e00e418c13bb" msprop:DbColumnName="dimEncounterKey" msprop:FriendlyName="dimEncounterKey" type="xs:int" />
+                  <xs:element name="dimDateKey_Admission" msprop:design-time-name="be78ee39-a7a9-476f-8fe8-daa2920e1288" msprop:DbColumnName="dimDateKey_Admission" msprop:FriendlyName="dimDateKey_Admission" type="xs:int" />
+                  <xs:element name="dimDateKey_Discharge" msprop:design-time-name="0d5f90a6-50cd-4b00-8d56-29d32bdf871a" msprop:DbColumnName="dimDateKey_Discharge" msprop:FriendlyName="dimDateKey_Discharge" type="xs:int" />
+                  <xs:element name="dimPatientKey" msprop:design-time-name="e5f0c52a-7326-48f5-b1c6-b4739a159e4f" msprop:DbColumnName="dimPatientKey" msprop:FriendlyName="dimPatientKey" type="xs:int" />
+                  <xs:element name="Cost" msprop:design-time-name="93db67e2-0799-4472-9883-9819f0258ef1" msprop:DbColumnName="Cost" msprop:FriendlyName="Cost" type="xs:decimal" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_dimDate" msprop:design-time-name="1686e0d3-57e0-4091-81ae-a62da3b4b5e0" msprop:DbTableName="dimDate" msprop:FriendlyName="dimDate" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="dimDateKey" msprop:design-time-name="6c18b57b-9638-4efc-a216-1be155048e20" msprop:DbColumnName="dimDateKey" msprop:FriendlyName="dimDateKey" type="xs:int" />
+                  <xs:element name="altdate" msprop:design-time-name="25d39d1b-9fe2-4afa-abdb-06741eb0f649" msprop:DbColumnName="altdate" msprop:FriendlyName="altdate" type="xs:dateTime" />
+                  <xs:element name="Year" msprop:design-time-name="3b0c3d34-a14d-406e-b703-7d70828e0866" msprop:DbColumnName="Year" msprop:FriendlyName="Year" type="xs:short" />
+                  <xs:element name="Quarter" msprop:design-time-name="0efd20fa-cd41-4088-8f97-013b797f8582" msprop:DbColumnName="Quarter" msprop:FriendlyName="Quarter" type="xs:unsignedByte" />
+                  <xs:element name="Month" msprop:design-time-name="9d7b8a6f-5910-41f8-adf4-8522585d823a" msprop:DbColumnName="Month" msprop:FriendlyName="Month" type="xs:unsignedByte" />
+                  <xs:element name="Day" msprop:design-time-name="6f71ca11-b681-44b9-a1ae-ccbebd91f1dc" msprop:DbColumnName="Day" msprop:FriendlyName="Day" type="xs:unsignedByte" minOccurs="0" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_dimPatient" msprop:design-time-name="179cd7a0-3279-4ebd-991b-0e49506f5e16" msprop:DbTableName="dimPatient" msprop:FriendlyName="dimPatient" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="dimPatientKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="e6010e7e-5b6d-402b-881d-349c5fc8a1de" msprop:DbColumnName="dimPatientKey" msprop:FriendlyName="dimPatientKey" type="xs:int" />
+                  <xs:element name="PatientID" msprop:design-time-name="cf805b34-b914-4b75-9608-c42678f3093b" msprop:DbColumnName="PatientID" msprop:FriendlyName="PatientID">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="Gender" msprop:design-time-name="0f13dc7a-a3f9-4796-9452-c86ce104b4d7" msprop:DbColumnName="Gender" msprop:FriendlyName="Gender">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dbo_dimEncounter" msprop:design-time-name="816b4b08-baed-4304-a23c-82bc3ae219dd" msprop:DbTableName="dimEncounter" msprop:FriendlyName="dimEncounter" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="dimEncounterKey" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:design-time-name="7f561cbf-84a6-4185-8281-cd44ffe1d6d2" msprop:DbColumnName="dimEncounterKey" msprop:FriendlyName="dimEncounterKey" type="xs:int" />
+                  <xs:element name="EncounterID" msprop:design-time-name="e6819900-49ba-4801-8385-8ffc6e469904" msprop:DbColumnName="EncounterID" msprop:FriendlyName="EncounterID">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="AdmissionType" msprop:design-time-name="e91b7ebe-ce97-43dd-9387-c8ef71079373" msprop:DbColumnName="AdmissionType" msprop:FriendlyName="AdmissionType">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="EncounterType" msprop:design-time-name="21254fab-92f1-4787-b22c-094e90912f1b" msprop:DbColumnName="EncounterType" msprop:FriendlyName="EncounterType" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_factEncounter" />
+          <xs:field xpath="factEncounterKey" />
+        </xs:unique>
+        <xs:unique name="dbo_dimDate_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_dimDate" />
+          <xs:field xpath="dimDateKey" />
+        </xs:unique>
+        <xs:unique name="dbo_dimPatient_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_dimPatient" />
+          <xs:field xpath="dimPatientKey" />
+        </xs:unique>
+        <xs:unique name="dbo_dimEncounter_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_dimEncounter" />
+          <xs:field xpath="dimEncounterKey" />
+        </xs:unique>
+        <xs:keyref name="FK_factEncounter_dimDate_0x8f15edb1fc015ce59ee34a99e6359217" refer="dbo_dimDate_Constraint1">
+          <xs:selector xpath=".//dbo_factEncounter" />
+          <xs:field xpath="dimDateKey_Admission" />
+        </xs:keyref>
+        <xs:keyref name="FK_factEncounter_dimPatient_0x91c6ceb44846fa4c1fd6e2f765b8fa5e" refer="dbo_dimPatient_Constraint1">
+          <xs:selector xpath=".//dbo_factEncounter" />
+          <xs:field xpath="dimPatientKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_factEncounter_dimEncounter_0x157b7fa3d6621b51853211a57cf80a84" refer="dbo_dimEncounter_Constraint1">
+          <xs:selector xpath=".//dbo_factEncounter" />
+          <xs:field xpath="dimEncounterKey" />
+        </xs:keyref>
+        <xs:keyref name="FK_factEncounter_dimDate_0xb643a9ac813bc4e5c84cf7459b3ae7ed" refer="dbo_dimDate_Constraint1">
+          <xs:selector xpath=".//dbo_factEncounter" />
+          <xs:field xpath="dimDateKey_Discharge" />
+        </xs:keyref>
+      </xs:element>
+    </xs:schema>
+    <srcvInterview xmlns="" />
+  </Schema>
+</DataSourceView>

@@ -1,0 +1,29 @@
+
+-- $80,766,524.00
+-- 161,600
+with 
+member [Measures].[YTD_avg] as
+	avg(
+		periodstodate(
+			[Dim Date Key Discharge].[Month].[(All)],
+			[Dim Date Key Discharge].[Month].currentmember
+		),
+		[Measures].[Fact Encounter Count]
+	)
+,format_string='#,###.####'
+select
+{
+	--[Measures].[Cost],
+	[Measures].[Fact Encounter Count],
+	[Measures].[YTD_avg]
+} on 0
+,
+{
+	[Dim Date Key Discharge].[Year].children *
+	[Dim Date Key Discharge].[Month].children *
+	[Dim Encounter].[Admission Type].children
+} on 1
+from
+	cubeInterview
+
+

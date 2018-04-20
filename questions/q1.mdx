@@ -1,0 +1,19 @@
+
+-- $80,766,524.00
+-- 161,600
+with member [Measures].[POT by Encounter Type] as
+	[Measures].[Fact Encounter Count] / 
+	([Dim Encounter].[Encounter Type].CurrentMember.Parent, [Measures].[Fact Encounter Count])
+,format_string='00.00000%'
+select
+non empty {
+	[Dim Encounter].[Encounter Type].children
+} on 0
+,
+{
+	[Measures].[POT by Encounter Type]
+} on 1
+from
+	cubeInterview
+
+

@@ -1,0 +1,69 @@
+
+-- $80,766,524.00
+-- 161,600
+with set [OrderedSet] as
+	order(
+		(
+			--[Dim Patient].[Gender].children,
+			[Dim Date Key Admission].[Year].children,
+			[Dim Date Key Admission].[Month].children
+		),
+		[Measures].[Fact Encounter Count],
+		BDESC
+	)
+MEMBER [Measures].[Rank] AS 
+	Rank(
+		(
+			--[Dim Patient].[Gender].currentmember,
+			[Dim Date Key Admission].[Year].currentmember,
+			[Dim Date Key Admission].[Month].currentmember
+		),
+		[OrderedSet],
+		[Measures].[Fact Encounter Count]
+	)  
+MEMBER [Measures].[Row_Number] AS 
+	Rank(
+		(
+			--[Dim Patient].[Gender].currentmember,
+			[Dim Date Key Admission].[Year].currentmember,
+			[Dim Date Key Admission].[Month].currentmember
+		),
+		[OrderedSet]
+	)  
+MEMBER [Measures].[Dense_Rank] AS 
+	iif(1 = [Measures].[Row_Number], 1,
+	iif([Measures].[Rank] = [Measures].[Row_Number], 
+		sum([OrderedSet].item([Measures].[Row_Number]-2), [Measures].[Dense_Rank]+1),
+		sum([OrderedSet].item([Measures].[Row_Number]-2), [Measures].[Dense_Rank])
+	))
+member [Measures].[POT by Encounter Type] as
+	[Measures].[Fact Encounter Count] / 
+	(
+		(
+			--[Dim Patient].[Gender].currentmember.Parent,
+			[Dim Date Key Admission].[Year].currentmember.Parent,
+			[Dim Date Key Admission].[Month].currentmember.Parent
+		),
+		[Measures].[Fact Encounter Count]
+	)
+,format_string='00.00000%'
+select
+{
+	[Measures].[Cost],
+	[Measures].[Fact Encounter Count],
+	[Measures].[Rank],
+	[Measures].[Row_Number],
+	[Measures].[Dense_Rank],
+	[Measures].[POT by Encounter Type]
+} on 0
+,
+{
+	[OrderedSet]
+//	[Dim Patient].[Gender].children
+//	* [Dim Date Key Admission].[Year].children
+//	* [Dim Date Key Admission].[Month].children
+} on 1
+from
+	cubeInterview
+
+

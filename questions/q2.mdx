@@ -1,0 +1,57 @@
+
+-- $80,766,524.00
+-- 161,600
+with set [OrderedSet] as
+	order(
+		(
+			[Dim Patient].[Gender].children,
+			[Dim Date Key Discharge].[Year].children,
+			[Dim Date Key Discharge].[Month].children
+		),
+		[Measures].[Fact Encounter Count],
+		BDESC
+	)
+MEMBER [Measures].[Rank] AS 
+	Rank(
+		(
+			[Dim Patient].[Gender].currentmember,
+			[Dim Date Key Discharge].[Year].currentmember,
+			[Dim Date Key Discharge].[Month].currentmember
+		),
+		[OrderedSet],
+		[Measures].[Fact Encounter Count]
+	)  
+MEMBER [Measures].[Row_Number] AS 
+	Rank(
+		(
+			[Dim Patient].[Gender].currentmember,
+			[Dim Date Key Discharge].[Year].currentmember,
+			[Dim Date Key Discharge].[Month].currentmember
+		),
+		[OrderedSet]
+	)  
+MEMBER [Measures].[Dense_Rank] AS 
+	iif(1 = [Measures].[Row_Number], 1,
+	iif([Measures].[Rank] = [Measures].[Row_Number], 
+		sum([OrderedSet].item([Measures].[Row_Number]-2), [Measures].[Dense_Rank]+1),
+		sum([OrderedSet].item([Measures].[Row_Number]-2), [Measures].[Dense_Rank])
+	))
+select
+{
+	[Measures].[Cost],
+	[Measures].[Fact Encounter Count],
+	[Measures].[Rank],
+	[Measures].[Row_Number],
+	[Measures].[Dense_Rank]
+} on 0
+,
+{
+	[OrderedSet]
+//	[Dim Patient].[Gender].children
+//	* [Dim Date Key Discharge].[Year].children
+//	* [Dim Date Key Discharge].[Month].children
+} on 1
+from
+	cubeInterview
+
+
